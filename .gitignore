@@ -11,3 +11,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 /GUI_Web/allure-results/
 /GUI_Web/extent-reports/
+GUI_Web/generate_allure_report.sh
+GUI_Web/generate_allure_report.bat
