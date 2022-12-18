@@ -1,0 +1,10 @@
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "target/downloadedFiles/"". @18-12-2022 08:08:22.0364 AM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "src/test/resources/testDataFiles/target/downloadedFiles/"". @18-12-2022 08:08:22.0365 AM
+[ReportManager] Attempting to run locally on: "Windows-64 | Google chrome". @18-12-2022 08:08:22.0379 AM
+[ReportManager] Identifying OS/Driver combination and selecting the correct driver version automatically. Please note that if a new driver executable will be downloaded it may take some time... @18-12-2022 08:08:22.0380 AM
+[ReportManager] Successfully Opened Google chrome. @18-12-2022 08:08:25.0049 AM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "simpleJSON.json"". @18-12-2022 08:08:25.0054 AM
+[ReportManager] File Action "DoesFileExist" successfully performed. With the following test data "File Path: "src/test/resources/testDataFiles/simpleJSON.json"". @18-12-2022 08:08:25.0055 AM
+[ReportManager] File Action "GetAbsolutePath" successfully performed. With the following test data "Relative Folder Path: "src/test/resources/testDataFiles/simpleJSON.json"". @18-12-2022 08:08:25.0055 AM
+[ReportManager] Loaded Test Data: "src/test/resources/testDataFiles/simpleJSON.json". @18-12-2022 08:08:25.0060 AM
+[ReportManager] Successfully created attachment "Test Data - JSON" @18-12-2022 08:08:25.0061 AM
