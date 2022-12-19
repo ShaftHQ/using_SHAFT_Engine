@@ -1,7 +1,7 @@
 # Web GUI
 
 ## What does it do?
-This maven module shows you what a well structured project looks like, so that you can focus on exploring some proposed design patterns (page object model + fluent design) and some proposed best practices (by object locators + test isolation + allure/testng annotations and parameters) for a real project that uses [SHAFT_Engine](https://github.com/shafthq/SHAFT_ENGINE).
+This maven module shows you what a well-structured project looks like, so that you can focus on exploring some proposed design patterns (page object model + fluent design) and some proposed best practices (by object locators + test isolation + allure/testng annotations and parameters) for a real project that uses [SHAFT_Engine](https://github.com/shafthq/SHAFT_ENGINE).
 <br/>It is recommeded to play around with the Basic Web GUI module first to get familiar with the engine itself before focusing on optimizing the project structure.
 
 ## How do I run it?

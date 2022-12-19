@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GUI_Web/GUI_Web.iml" filepath="$PROJECT_DIR$/GUI_Web/GUI_Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GUI_Web_Basic/GUI_Web_Basic.iml" filepath="$PROJECT_DIR$/GUI_Web_Basic/GUI_Web_Basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GUI_Web_Cucumber/GUI_Web_Cucumber.iml" filepath="$PROJECT_DIR$/GUI_Web_Cucumber/GUI_Web_Cucumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/using_SHAFT_Engine.iml" filepath="$PROJECT_DIR$/.idea/using_SHAFT_Engine.iml" />
     </modules>
   </component>
