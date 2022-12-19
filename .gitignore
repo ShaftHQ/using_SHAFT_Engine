@@ -13,3 +13,4 @@ buildNumber.properties
 */generate_allure_report.bat
 /*/allure-results/
 /*/extent-reports/
+/.idea/
