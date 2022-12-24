@@ -1,14 +1,14 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directory: "/*/"
+    directory: "/GUI_Web"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 1000
     target-branch: main
 
   - package-ecosystem: "github-actions"
-    directory: "/*/"
+    directory: "/"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 1000
