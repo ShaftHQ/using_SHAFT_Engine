@@ -51,7 +51,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.9.1</version>
+                        <version>1.9.19</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -60,7 +60,7 @@
                     <encoding>UTF-8</encoding>
                     <argLine>
                         -Dtestng.dtd.http=true
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.9.1/aspectjweaver-1.9.9.1.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar"
                     </argLine>
                     <properties>
                         <property>
