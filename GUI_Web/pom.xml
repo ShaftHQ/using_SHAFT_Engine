@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>6.4.20221225</shaft_engine.version>
+        <shaft_engine.version>7.1.20230104</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
@@ -39,8 +39,8 @@
                     <source>17</source>
                     <target>17</target>
                     <encoding>UTF-8</encoding>
-                    <maxmem>40960m</maxmem>
-                    <meminitial>10240m</meminitial>
+                    <maxmem>10240m</maxmem>
+                    <meminitial>1024m</meminitial>
                 </configuration>
             </plugin>
             <plugin>
@@ -51,7 +51,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.19</version>
+                        <version>1.9.7</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -60,7 +60,7 @@
                     <encoding>UTF-8</encoding>
                     <argLine>
                         -Dtestng.dtd.http=true
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
                     </argLine>
                     <properties>
                         <property>
@@ -70,7 +70,7 @@
                         <property>
                             <name>listener</name>
                             <value>
-                                com.shaft.tools.listeners.AlterSuiteListener,com.shaft.tools.listeners.SuiteListener,com.shaft.tools.listeners.InvokedMethodListener
+                                io.github.shafthq.shaft.listeners.TestNGListener
                             </value>
                         </property>
                     </properties>
