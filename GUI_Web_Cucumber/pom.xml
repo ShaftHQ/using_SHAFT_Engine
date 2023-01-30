@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.shafthq</groupId>
-    <artifactId>GUI_Web_Cucumber</artifactId>
+    <artifactId>GUI_Web_Cucumbe</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-   <properties>
+    <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.1.20230125</shaft_engine.version>
+        <shaft_engine.version>7.1.20230130</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
@@ -51,7 +51,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.7</version>
+                        <version>1.9.19</version>
                     </dependency>
                 </dependencies>
                 <configuration>
@@ -60,7 +60,7 @@
                     <encoding>UTF-8</encoding>
                     <argLine>
                         -Dtestng.dtd.http=true
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar"
                     </argLine>
                     <properties>
                         <property>
