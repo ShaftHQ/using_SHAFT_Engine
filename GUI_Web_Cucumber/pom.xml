@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.1.20230220</shaft_engine.version>
+        <shaft_engine.version>7.1.20230227</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
