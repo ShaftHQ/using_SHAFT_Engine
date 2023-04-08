@@ -69,9 +69,7 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>
-                                io.github.shafthq.shaft.listeners.TestNGListener
-                            </value>
+                            <value>com.shaft.listeners.TestNGListener</value>
                         </property>
                     </properties>
                 </configuration>
