@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.2.20230407</shaft_engine.version>
+        <shaft_engine.version>7.2.20230408</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
@@ -69,9 +69,7 @@
                         </property>
                         <property>
                             <name>listener</name>
-                            <value>
-                                io.github.shafthq.shaft.listeners.TestNGListener
-                            </value>
+                            <value>com.shaft.listeners.TestNGListener</value>
                         </property>
                     </properties>
                 </configuration>
