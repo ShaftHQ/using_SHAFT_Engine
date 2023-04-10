@@ -9,10 +9,10 @@
 - From your GitHub Desktop click the button that says "Open in JetBrains IntelliJ Idea Community Edition"
 - Due to a known issue with IntelliJ you need to edit your run configuration templates before running your tests by following these steps:
   - Open 'Edit Run/Debug Configurations' dialog > Edit Configurations... > Edit configuration templates...
-  - Select <b>TestNG</b> > Listeners > and add these listener:
-    <br/>`io.github.shafthq.shaft.listeners.TestNGListener`
+  - Select <b>TestNG</b> > Listeners > and add this listener:
+    <br/>`com.shaft.listeners.TestNGListener`
   - Select <b>Cucumber Java</b> > Program Arguments > and add this argument:
-  <br/>`--plugin io.github.shafthq.shaft.listeners.CucumberFeatureListener`
+  <br/>`--plugin --plugin com.shaft.listeners.CucumberFeatureListener`
   - After saving the changes, remember to delete any old test runs you may have triggered by mistake before adding the needed config.
 
 ### Step 2: Running some Tests
