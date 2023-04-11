@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.shafthq</groupId>
-    <artifactId>GUI_Web_Cucumbe</artifactId>
+    <artifactId>GUI_Web_Cucumber</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.2.20230408</shaft_engine.version>
+        <shaft_engine.version>7.2.20230411</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
