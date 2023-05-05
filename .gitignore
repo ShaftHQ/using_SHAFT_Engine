@@ -14,3 +14,7 @@ buildNumber.properties
 /*/allure-results/
 /*/extent-reports/
 /.idea/
+/GUI_Web_Basic/src/main/resources/properties/*.properties
+/GUI_Web/src/main/resources/properties/*.properties
+/GUI_Web_Basic/execution-summary/*.html
+/GUI_Web/execution-summary/*.html
