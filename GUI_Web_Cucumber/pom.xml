@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.2.20230505_ALPHA</shaft_engine.version>
+        <shaft_engine.version>7.2.20230511_ALPHA</shaft_engine.version>
     </properties>
     <repositories>
         <repository>
@@ -43,38 +43,107 @@
                     <meminitial>1024m</meminitial>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.19</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
-                    <failIfNoTests>false</failIfNoTests>
-                    <encoding>UTF-8</encoding>
-                    <argLine>
-                        -Dtestng.dtd.http=true
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar"
-                    </argLine>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <property>
-                            <name>listener</name>
-                            <value>com.shaft.listeners.TestNGListener</value>
-                        </property>
-                    </properties>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
-
+    <profiles>
+        <profile>
+            <id>testng</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>1.9.19</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.apache.maven.surefire</groupId>
+                                <artifactId>surefire-testng</artifactId>
+                                <version>3.1.0</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <testng.dtd.http>true</testng.dtd.http>
+                                <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+                            </systemPropertyVariables>
+                            <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+                            <failIfNoTests>false</failIfNoTests>
+                            <trimStackTrace>false</trimStackTrace>
+                            <useFile>false</useFile>
+                            <encoding>UTF-8</encoding>
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>com.shaft.listeners.TestNGListener</value>
+                                </property>
+                                <property>
+                                    <name>reporter</name>
+                                    <value>
+                                        org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true
+                                    </value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>junit</id>
+            <activation>
+                <file>
+                    <missing>src/test/resources/META-INF/services/org.testng.ITestNGListener</missing>
+                    <exists>src/test/resources/META-INF/services/org.junit.platform.launcher.LauncherSessionListener
+                    </exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>1.9.19</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <testng.dtd.http>true</testng.dtd.http>
+                                <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+                            </systemPropertyVariables>
+                            <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
+                            <failIfNoTests>false</failIfNoTests>
+                            <trimStackTrace>false</trimStackTrace>
+                            <useFile>false</useFile>
+                            <encoding>UTF-8</encoding>
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>com.shaft.listeners.JunitListener</value>
+                                </property>
+                                <property>
+                                    <name>reporter</name>
+                                    <value>
+                                        org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true
+                                    </value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
