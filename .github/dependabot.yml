@@ -4,26 +4,22 @@ updates:
     directory: "/GUI_Web"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 1000
     target-branch: main
     
   - package-ecosystem: "maven"
     directory: "/GUI_Web_Basic"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 1000
     target-branch: main
     
   - package-ecosystem: "maven"
     directory: "/GUI_Web_Cucumber"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 1000
     target-branch: main
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
-    open-pull-requests-limit: 1000
     target-branch: main
