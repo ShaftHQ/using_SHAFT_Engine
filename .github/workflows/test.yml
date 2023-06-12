@@ -39,9 +39,9 @@ jobs:
         run: |
           cd GUI_Web/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="LINUX" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true" -Dtest=".*TestClass.*"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="LINUX" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="MAC" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true" -Dtest=".*TestClass.*"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="MAC" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="WINDOWS" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true" -Dtest=".*TestClass.*"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="WINDOWS" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
@@ -97,9 +97,9 @@ jobs:
         run: |
           cd GUI_Web_Basic/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true" -Dtest=".*BasicTestClass.*"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true" -Dtest=".*BasicTestClass.*"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -109,7 +109,7 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web_Basic/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true" -Dtest=".*BasicTestClass.*"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
@@ -155,9 +155,9 @@ jobs:
         run: |
           cd GUI_Web_Cucumber/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true" -Dtest=".*CucumberTestRunner.*"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true" -Dtest=".*CucumberTestRunner.*"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -167,7 +167,7 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web_Cucumber/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true" -Dtest=".*CucumberTestRunner.*"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
