@@ -10,18 +10,12 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.2.20230527</shaft_engine.version>
+        <shaft_engine.version>7.2.20230611</shaft_engine.version>
+        <aspectj.version>1.9.19</aspectj.version>
+        <argLine>
+            -javaagent:${user.home}/.m2/repository/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+        </argLine>
     </properties>
-    <repositories>
-        <repository>
-            <id>automatest-artifactory</id>
-            <url>https://automatest.jfrog.io/artifactory/SHAFT_ENGINE</url>
-        </repository>
-        <repository>
-            <id>central-2</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>io.github.shafthq</groupId>
@@ -57,22 +51,9 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.1.0</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjweaver</artifactId>
-                                <version>1.9.19</version>
-                            </dependency>
-                            <dependency>
-                                <groupId>org.apache.maven.surefire</groupId>
-                                <artifactId>surefire-testng</artifactId>
-                                <version>3.1.0</version>
-                            </dependency>
-                        </dependencies>
                         <configuration>
                             <systemPropertyVariables>
                                 <testng.dtd.http>true</testng.dtd.http>
-                                <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
                             </systemPropertyVariables>
                             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                             <failIfNoTests>false</failIfNoTests>
@@ -81,14 +62,12 @@
                             <encoding>UTF-8</encoding>
                             <properties>
                                 <property>
-                                    <name>listener</name>
-                                    <value>com.shaft.listeners.TestNGListener</value>
+                                    <name>usedefaultlisteners</name>
+                                    <value>false</value>
                                 </property>
                                 <property>
-                                    <name>reporter</name>
-                                    <value>
-                                        org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true
-                                    </value>
+                                    <name>listener</name>
+                                    <value>com.shaft.listeners.TestNGListener</value>
                                 </property>
                             </properties>
                         </configuration>
@@ -101,8 +80,7 @@
             <activation>
                 <file>
                     <missing>src/test/resources/META-INF/services/org.testng.ITestNGListener</missing>
-                    <exists>src/test/resources/META-INF/services/org.junit.platform.launcher.LauncherSessionListener
-                    </exists>
+                    <exists>src/test/resources/META-INF/services/org.junit.platform.launcher.LauncherSessionListener</exists>
                 </file>
             </activation>
             <build>
@@ -111,17 +89,9 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.1.0</version>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.aspectj</groupId>
-                                <artifactId>aspectjweaver</artifactId>
-                                <version>1.9.19</version>
-                            </dependency>
-                        </dependencies>
                         <configuration>
                             <systemPropertyVariables>
                                 <testng.dtd.http>true</testng.dtd.http>
-                                <jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
                             </systemPropertyVariables>
                             <failIfNoSpecifiedTests>false</failIfNoSpecifiedTests>
                             <failIfNoTests>false</failIfNoTests>
@@ -130,14 +100,12 @@
                             <encoding>UTF-8</encoding>
                             <properties>
                                 <property>
-                                    <name>listener</name>
-                                    <value>com.shaft.listeners.JunitListener</value>
+                                    <name>usedefaultlisteners</name>
+                                    <value>false</value>
                                 </property>
                                 <property>
-                                    <name>reporter</name>
-                                    <value>
-                                        org.testng.reporters.XMLReporter:generateTestResultAttributes=true,generateGroupsAttribute=true
-                                    </value>
+                                    <name>listener</name>
+                                    <value>com.shaft.listeners.JunitListener</value>
                                 </property>
                             </properties>
                         </configuration>
