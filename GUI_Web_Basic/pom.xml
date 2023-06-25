@@ -10,7 +10,7 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>7.2.20230611</shaft_engine.version>
+        <shaft_engine.version>7.2.20230621</shaft_engine.version>
         <aspectjweaver.version>1.9.19</aspectjweaver.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
