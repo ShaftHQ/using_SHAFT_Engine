@@ -8,7 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 public class BasicTestClass {
     SHAFT.GUI.WebDriver driver;
-    
+    protected LoginPage loginPage;
+
     @Test
     public void test() {
         driver.browser().navigateToURL("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
@@ -19,6 +20,7 @@ public class BasicTestClass {
     @BeforeClass
     public void beforeClass() {
         driver = new SHAFT.GUI.WebDriver();
+        loginPage = new LoginPage(driver);
     }
 
     @AfterClass
