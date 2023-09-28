@@ -8,25 +8,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 public class BasicTestClass {
     SHAFT.GUI.WebDriver driver;
-    SHAFT.TestData.JSON testData;
-
-    By searchBox = By.name("q");
-    By resultStats = By.id("result-stats");
-
+    
     @Test
     public void test() {
-        driver.browser().navigateToURL("https://www.google.com/");
-        driver.verifyThat().browser().title().isEqualTo("Google").perform();
-        driver.element().type(searchBox, testData.getTestData("searchQuery"))
-                .keyPress(searchBox, Keys.ENTER);
-        driver.assertThat().element(resultStats).text().doesNotEqual("")
-                .withCustomReportMessage("Check that result stats is not empty").perform();
+        driver.browser().navigateToURL("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+         loginPage.login("Admin","admin123")
+                .clickDropDownList("Support");
     }
 
     @BeforeClass
     public void beforeClass() {
         driver = new SHAFT.GUI.WebDriver();
-        testData = new SHAFT.TestData.JSON("simpleJSON.json");
     }
 
     @AfterClass
