@@ -55,14 +55,14 @@ jobs:
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
           path: "GUI_Web/generatedReport_*.zip"
 
       - name: Upload Extent Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
           path: "GUI_Web/extent-reports/ExtentReports_*.html"
@@ -113,14 +113,14 @@ jobs:
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
           path: "GUI_Web_Basic/generatedReport_*.zip"
 
       - name: Upload Extent Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
           path: "GUI_Web_Basic/extent-reports/ExtentReports_*.html"
@@ -171,14 +171,14 @@ jobs:
 
       - name: Upload Allure Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
           path: "GUI_Web_Cucumber/generatedReport_*.zip"
 
       - name: Upload Extent Report as Pipeline Artifact
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
           path: "GUI_Web_Cucumber/extent-reports/ExtentReports_*.html"
