@@ -39,9 +39,9 @@ jobs:
         run: |
           cd GUI_Web/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="LINUX" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="LINUX" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" 
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="MAC" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="MAC" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" 
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -51,21 +51,14 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="WINDOWS" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="WINDOWS" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge"
 
-      - name: Upload Allure Report as Pipeline Artifact
+      - name: Upload Report as Pipeline Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
-          path: "GUI_Web/generatedReport_*.zip"
-
-      - name: Upload Extent Report as Pipeline Artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
-          path: "GUI_Web/extent-reports/ExtentReports_*.html"
+          name: ${{ runner.os }} - Desktop Browsers Tests Report
+          path: "GUI_Web/allure-reports/*_AllureReport.html"
           
   GUI_Web_Basic:
     name: Run GUI_Web_Basic Tests
@@ -97,9 +90,9 @@ jobs:
         run: |
           cd GUI_Web_Basic/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome"
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3"
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -109,21 +102,14 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web_Basic/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" 
 
-      - name: Upload Allure Report as Pipeline Artifact
+      - name: Upload Report as Pipeline Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
-          path: "GUI_Web_Basic/generatedReport_*.zip"
-
-      - name: Upload Extent Report as Pipeline Artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
-          path: "GUI_Web_Basic/extent-reports/ExtentReports_*.html"
+          name: ${{ runner.os }} - Desktop Browsers Tests Report
+          path: "GUI_Web_Basic/allure-reports/*_AllureReport.html"
           
   GUI_Web_Cucumber:
     name: Run GUI_Web_Cucumber Tests
@@ -155,9 +141,9 @@ jobs:
         run: |
           cd GUI_Web_Cucumber/
           if [ "$RUNNER_OS" == "Linux" ]; then
-               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="localhost:4444" -DtargetOperatingSystem="Linux" -DmaximumPerformanceMode="2" -DtargetBrowserName="GoogleChrome" 
           elif [ "$RUNNER_OS" == "macOS" ]; then
-               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" -DgenerateAllureReportArchive="true"
+               mvn test -DexecutionAddress="browserstack" -DtargetOperatingSystem="Mac" -DmaximumPerformanceMode="1" -DtargetBrowserName="Safari" "-DbrowserStack.os=OS X" "-DbrowserStack.osVersion=Monterey" "-DbrowserStack.browserVersion=15.3" 
           else
                echo "$RUNNER_OS not supported"
                exit 1
@@ -167,18 +153,11 @@ jobs:
         continue-on-error: true
         run: |
           cd GUI_Web_Cucumber/
-          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" -DgenerateAllureReportArchive="true"
+          mvn test -DexecutionAddress="local" -DtargetOperatingSystem="Windows" -DmaximumPerformanceMode="2" -DtargetBrowserName="MicrosoftEdge" 
 
-      - name: Upload Allure Report as Pipeline Artifact
+      - name: Upload Report as Pipeline Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Allure Report
-          path: "GUI_Web_Cucumber/generatedReport_*.zip"
-
-      - name: Upload Extent Report as Pipeline Artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ runner.os }} - Desktop Browsers Tests Extent Report
-          path: "GUI_Web_Cucumber/extent-reports/ExtentReports_*.html"
+          name: ${{ runner.os }} - Desktop Browsers Tests Report
+          path: "GUI_Web_Cucumber/allure-reports/*_AllureReport.html"
