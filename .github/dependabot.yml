@@ -7,11 +7,12 @@ updates:
       - "/GUI_Web_Cucumber"
     schedule:
       interval: "daily"
-    target-branch: main
     groups:
-       dev-dependencies:
-           applies-to: version-updates
+      dev:
+        applies-to: version-updates
+    target-branch: main
 
+    
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
