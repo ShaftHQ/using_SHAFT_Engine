@@ -10,7 +10,7 @@ updates:
     target-branch: main
     groups:
        dev-dependencies:
-         applies-to: version-updates
+           applies-to: version-updates
 
   - package-ecosystem: "github-actions"
     directory: "/"
