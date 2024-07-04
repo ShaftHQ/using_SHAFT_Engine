@@ -8,8 +8,8 @@ updates:
     schedule:
       interval: "daily"
     groups:
-      dev:
-        applies-to: version-updates
+      development-dependencies:
+      dependency-type: "development"
     target-branch: main
 
     
