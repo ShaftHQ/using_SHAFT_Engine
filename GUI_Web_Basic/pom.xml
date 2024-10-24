@@ -10,13 +10,13 @@
 
     <properties>
         <!-- Make sure you point to the latest release version: https://github.com/ShaftHQ/SHAFT_ENGINE/releases -->
-        <shaft_engine.version>8.3.20240829</shaft_engine.version>
+        <shaft_engine.version>8.4.20241024</shaft_engine.version>
         <aspectjweaver.version>1.9.22.1</aspectjweaver.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-surefire-plugin.version>3.5.0</maven-surefire-plugin.version>
-        <surefire-testng.version>3.5.0</surefire-testng.version>
-        <junit-jupiter-engine.version>5.11.1</junit-jupiter-engine.version>
+        <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
+        <surefire-testng.version>3.5.1</surefire-testng.version>
+        <junit-jupiter-engine.version>5.11.3</junit-jupiter-engine.version>
     </properties>
     <dependencies>
         <dependency>
