@@ -35,7 +35,7 @@ jobs:
         
     - name: Start Selenium Grid
       run: |
-        docker-compose up --scale chrome=2 --scale edge=2 --scale firefox=2 -d
+        docker compose -f docker-compose.yml up --scale chrome=2 --scale edge=2 --scale firefox=2 -d
         
     - name: Wait for Grid
       run: |
@@ -62,5 +62,5 @@ jobs:
     - name: Cleanup
       if: always()
       run: |
-        docker-compose down -v || true
+        docker compose down -v || true
         docker system prune -f || true
