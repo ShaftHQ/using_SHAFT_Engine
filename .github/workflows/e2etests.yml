@@ -17,18 +17,12 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Set up Maven
-      uses: stCarolas/setup-maven@v5
-      with:
-        maven-version: 3.9.5
-
     - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
         java-version: '21'
         distribution: 'zulu'
-        cache: 'maven'
-        
+
     - name: Download Docker Compose
       run: |
         curl -o docker-compose.yml https://raw.githubusercontent.com/SeleniumHQ/docker-selenium/trunk/docker-compose-v3.yml
@@ -43,7 +37,7 @@ jobs:
         
     - name: Run Tests
       run: |
-        mvn -e test "-DtargetOperatingSystem=LINUX" "-DtargetBrowserName=${{ matrix.browser }}" "-DexecutionAddress=localhost:4444" "-DheadlessExecution=true" "-DgenerateAllureReportArchive=true" "-DretryMaximumNumberOfAttempts=1" "-DsetParallel=NONE" "-DsetParallelMode=DYNAMIC"
+        mvn -e clean test "-DtargetOperatingSystem=LINUX" "-DtargetBrowserName=${{ matrix.browser }}" "-DexecutionAddress=localhost:4444" "-DheadlessExecution=true" "-DgenerateAllureReportArchive=true" "-DretryMaximumNumberOfAttempts=1" "-DsetParallel=NONE" "-DsetParallelMode=DYNAMIC"
         
     - name: Upload Allure Report
       if: always()
