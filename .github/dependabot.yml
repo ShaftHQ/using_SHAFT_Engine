@@ -1,22 +1,22 @@
 version: 2
 updates:
   - package-ecosystem: "maven"
-    directories:
-      - "/GUI_Web"
-      - "/GUI_Web_Basic"
-      - "/GUI_Web_Cucumber"
+    directory: "/"
     schedule:
       interval: "daily"
+      time: "00:00"
+      timezone: "Africa/Cairo"
+    open-pull-requests-limit: 10
     groups:
        dev-dependencies:
           applies-to: version-updates
           patterns:
             - "*"
-    target-branch: main
-
     
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
-    target-branch: main
+      time: "00:00"
+      timezone: "Africa/Cairo"
+    open-pull-requests-limit: 10
