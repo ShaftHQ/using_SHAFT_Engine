@@ -3,9 +3,8 @@
 *A powerful, ready-to-use template for starting your end-to-end test automation with SHAFT_Engine.*
 
 <a href="https://github.com/ShaftHQ/using_SHAFT_Engine/actions"><img src="https://img.shields.io/github/actions/workflow/status/ShaftHQ/using_SHAFT_Engine/e2etests.yml?branch=main&logo=github&label=Tests" alt="Build Status"></a>
-<a href="https://github.com/ShaftHQ/using_SHAFT_Engine/releases"><img src="https://img.shields.io/github/v/release/ShaftHQ/using_SHAFT_Engine?logo=github&label=Latest%20Release" alt="Latest Release"></a>
 <a href="https://github.com/ShaftHQ/SHAFT_ENGINE"><img src="https://img.shields.io/github/v/release/ShaftHQ/SHAFT_ENGINE?logo=selenium&label=SHAFT%20Engine&color=blue" alt="SHAFT Engine"></a>
-<a href="https://github.com/ShaftHQ/using_SHAFT_Engine"><img src="https://img.shields.io/github/stars/ShaftHQ/using_SHAFT_Engine?logo=github&label=Stars" alt="GitHub Stars"></a>
+<a href="https://github.com/ShaftHQ/SHAFT_Engine"><img src="https://img.shields.io/github/stars/ShaftHQ/SHAFT_Engine?logo=github&label=Stars" alt="GitHub Stars"></a>
 
 ---
 
@@ -42,7 +41,7 @@ This repository is a **production-ready starter kit** for SHAFT_Engine users, el
 ## ⚡ Getting Started (Prerequisites and Dependencies)
 
 ### Prerequisites
-- **Java Development Kit (JDK) 17+** (recommended JDK 21 for latest features)
+- **Java Development Kit (JDK) 21+** (recommended JDK 24 for latest features)
 - **Apache Maven 3.6.3+** 
 - Modern IDE (e.g., IntelliJ IDEA, Eclipse, VS Code with Java extensions)
 - **Docker** (optional, for Selenium Grid testing)
@@ -72,7 +71,7 @@ This repository is a **production-ready starter kit** for SHAFT_Engine users, el
 
 ### IDE Setup (IntelliJ IDEA Recommended)
 1. Import the project as a Maven project
-2. Ensure the Project SDK is set to JDK 17+
+2. Ensure the Project SDK is set to JDK 21+
 3. Install the TestNG plugin
 4. Configure test runner to use TestNG
 
@@ -299,14 +298,14 @@ The included GitHub Actions workflow provides:
 
 ### Official Resources
 - 📚 **[SHAFT_Engine Documentation](https://shafthq.github.io/)** - Complete API reference and guides
-- 🐛 **[Report Issues](https://github.com/ShaftHQ/using_SHAFT_Engine/issues)** - Bug reports and feature requests
+- 🐛 **[Report Issues](https://github.com/ShaftHQ/SHAFT_Engine/issues)** - Bug reports and feature requests
 - 💬 **[Discussions](https://github.com/ShaftHQ/SHAFT_ENGINE/discussions)** - Community support and Q&A
 - 📖 **[Wiki](https://github.com/ShaftHQ/SHAFT_ENGINE/wiki)** - Advanced tutorials and best practices
 
 ### Quick Support Guide
 
 **Before Opening an Issue:**
-1. Check existing [issues](https://github.com/ShaftHQ/using_SHAFT_Engine/issues)
+1. Check existing [issues](https://github.com/ShaftHQ/SHAFT_Engine/issues)
 2. Review the [documentation](https://shafthq.github.io/)
 3. Try the [troubleshooting guide](https://shafthq.github.io/troubleshooting/)
 
@@ -332,7 +331,7 @@ The included GitHub Actions workflow provides:
 We welcome contributions from the community! Here's how you can help:
 
 #### 🌟 **Ways to Contribute**
-- 🐛 **Report Bugs**: Found something broken? [Open an issue](https://github.com/ShaftHQ/using_SHAFT_Engine/issues/new)
+- 🐛 **Report Bugs**: Found something broken? [Open an issue](https://github.com/ShaftHQ/SHAFT_Engine/issues/new)
 - 💡 **Suggest Features**: Have ideas for improvements? [Start a discussion](https://github.com/ShaftHQ/SHAFT_ENGINE/discussions)
 - 📝 **Improve Documentation**: Fix typos, add examples, or write guides
 - 🧪 **Add Tests**: Expand the test coverage with new examples
@@ -354,7 +353,7 @@ We welcome contributions from the community! Here's how you can help:
 
 ### 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/ShaftHQ/using_SHAFT_Engine/blob/main/LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/ShaftHQ/SHAFT_Engine/blob/main/LICENSE) file for details.
 
 ```
 MIT License - Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -373,7 +372,7 @@ of this software and associated documentation files...
 
 **Ready to revolutionize your test automation?**
 
-[⭐ Star this repository](https://github.com/ShaftHQ/using_SHAFT_Engine/stargazers) • [🍴 Fork and customize](https://github.com/ShaftHQ/using_SHAFT_Engine/fork) • [📖 Read the docs](https://shafthq.github.io/)
+[⭐ Star this repository](https://github.com/ShaftHQ/SHAFT_Engine/stargazers) • [🍴 Fork and customize](https://github.com/ShaftHQ/SHAFT_Engine/fork) • [📖 Read the docs](https://shafthq.github.io/)
 
 **Built with ❤️ by the SHAFT_Engine community**
 
