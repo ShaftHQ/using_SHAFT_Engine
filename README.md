@@ -72,12 +72,10 @@ This repository is a **production-ready starter kit** for SHAFT_Engine users, el
 ### IDE Setup (IntelliJ IDEA Recommended)
 1. Import the project as a Maven project
 2. Ensure the Project SDK is set to JDK 21+
-3. Install the TestNG plugin
-4. Configure test runner to use TestNG
 
 ---
 
-## 📁 Project Structure Breakdown (Critical Requirement)
+## 📁 Project Structure Breakdown
 
 ```text
 using_SHAFT_Engine/
@@ -268,7 +266,7 @@ String query = testData.getTestData("searchQuery");
 
 ---
 
-## 📸 Visual Demonstration (The Viral Component)
+## 📸 Visual Demonstration
 
 ### 🎬 Live Test Execution Demo
 
