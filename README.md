@@ -101,7 +101,8 @@ using_SHAFT_Engine/
 │               └── 📁 services/                 # Service configurations for listeners
 ├── 📁 .github/
 │   └── 📁 workflows/
-│       └── 📄 e2etests.yml                     # 🚀 CI/CD pipeline configuration
+│       ├── 📄 e2etests.yml                     # 🚀 CI/CD pipeline configuration
+│       └── 📄 sync-template.yml                # 🔄 Automated template sync
 └── 📁 target/                                   # 📈 Generated reports and artifacts
     ├── 📁 logs/                                # Detailed execution logs
     ├── 📁 surefire-reports/                   # TestNG/JUnit reports
@@ -117,6 +118,7 @@ using_SHAFT_Engine/
 | **`properties/`** | Runtime configurations for different environments | Zero-code environment switching |
 | **`testDataFiles/`** | External test data (JSON, CSV, Excel) | Data-driven testing support |
 | **`e2etests.yml`** | Multi-browser CI/CD pipeline | Automated testing across Chrome, Firefox, Edge |
+| **`sync-template.yml`** | Automated template synchronization | Keeps repository files in sync with template |
 
 ---
 
