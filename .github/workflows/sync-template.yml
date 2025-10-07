@@ -1,0 +1,165 @@
+name: Sync Template Files
+
+on:
+  schedule:
+    # Run weekly on Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Download Template Files
+        run: |
+          # Create temporary directory for template files
+          mkdir -p /tmp/template
+
+          # Base URL for raw content from template repository
+          BASE_URL="https://raw.githubusercontent.com/ShaftHQ/testng-archetype/main"
+          TEMPLATE_PATH="src/test/resources/projects/should-generate-project/reference"
+          TEMPLATE_BASE="$BASE_URL/$TEMPLATE_PATH"
+
+          # Function to download file if it exists
+          download_if_exists() {
+            local file_path="$1"
+
+            local target_path="/tmp/template/$file_path"
+            mkdir -p "$(dirname "$target_path")"
+
+            if curl -f -s -o "$target_path" "$TEMPLATE_BASE/$file_path"; then
+              echo "Downloaded: $file_path"
+              return 0
+            else
+              echo "Skipped (not in template): $file_path"
+              return 1
+            fi
+          }
+
+          # Download files that exist in both repositories
+          download_if_exists "pom.xml"
+          download_if_exists ".gitignore"
+          download_if_exists "src/test/java/testPackage/TestClass.java"
+          download_if_exists "src/test/resources/testDataFiles/simpleJSON.json"
+          download_if_exists \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.ContainerLifecycleListener"
+          download_if_exists \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.FixtureLifecycleListener"
+          download_if_exists \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.StepLifecycleListener"
+          download_if_exists \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.TestLifecycleListener"
+          download_if_exists \
+            "src/test/resources/META-INF/services/org.testng.ITestNGListener"
+          download_if_exists "src/test/resources/META-INF/services/uuid"
+
+          # Download properties files
+          props="TestNG.properties cucumber.properties custom.properties"
+          props="$props customWebdriverCapabilities.properties"
+          props="$props junit-platform.properties log4j2.properties"
+          props="$props reportportal.properties"
+
+          for prop_file in $props; do
+            download_if_exists "src/main/resources/properties/$prop_file"
+            download_if_exists "src/main/resources/properties/default/$prop_file"
+          done
+
+      - name: Sync Files
+        id: sync-files
+        run: |
+          CHANGES_MADE=false
+
+          # Function to sync a file if it was downloaded and exists in current repo
+          sync_file() {
+            local file_path="$1"
+
+            if [ -f "/tmp/template/$file_path" ] && [ -f "$file_path" ]; then
+              if ! cmp -s "/tmp/template/$file_path" "$file_path"; then
+                echo "Updating: $file_path"
+                cp "/tmp/template/$file_path" "$file_path"
+                CHANGES_MADE=true
+              else
+                echo "No changes: $file_path"
+              fi
+            fi
+          }
+
+          # Sync all files that exist in both repositories
+          sync_file "pom.xml"
+          sync_file ".gitignore"
+          sync_file "src/test/java/testPackage/TestClass.java"
+          sync_file "src/test/resources/testDataFiles/simpleJSON.json"
+          sync_file \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.ContainerLifecycleListener"
+          sync_file \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.FixtureLifecycleListener"
+          sync_file \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.StepLifecycleListener"
+          sync_file \
+            "src/test/resources/META-INF/services/io.qameta.allure.listener.TestLifecycleListener"
+          sync_file "src/test/resources/META-INF/services/org.testng.ITestNGListener"
+          sync_file "src/test/resources/META-INF/services/uuid"
+
+          # Sync properties files
+          props="TestNG.properties cucumber.properties custom.properties"
+          props="$props customWebdriverCapabilities.properties"
+          props="$props junit-platform.properties log4j2.properties"
+          props="$props reportportal.properties"
+
+          for prop_file in $props; do
+            sync_file "src/main/resources/properties/$prop_file"
+            sync_file "src/main/resources/properties/default/$prop_file"
+          done
+
+          echo "changes_made=$CHANGES_MADE" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: steps.sync-files.outputs.changes_made == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: template-sync-${{ github.run_number }}
+          commit-message: |
+            chore: sync template files from testng-archetype
+
+            Automated synchronization of template files from:
+            https://github.com/ShaftHQ/testng-archetype/tree/main/src/test/resources/projects/should-generate-project/reference
+          title: "chore: sync template files from testng-archetype"
+          body: |
+            ## Automated Template Synchronization
+
+            This PR synchronizes files from the template repository
+            to keep them up to date.
+
+            **Template Source:**
+            https://github.com/ShaftHQ/testng-archetype/tree/main/src/test/resources/projects/should-generate-project/reference
+
+            **Changes:**
+            - Files in this repository that also exist in the template
+              have been synchronized
+            - Only files that differ from the template have been updated
+
+            **Review Notes:**
+            - Please review the changes carefully before merging
+            - Some files may need manual adjustments if custom modifications
+              were made
+            - Consider testing the changes before merging
+
+            ---
+            *This PR was created automatically by the sync-template workflow.*
+          labels: |
+            automated
+            template-sync
+
+      - name: Report Result
+        if: steps.sync-files.outputs.changes_made == 'false'
+        run: |
+          echo "No changes detected."
+          echo "Repository is already synchronized with the template."
